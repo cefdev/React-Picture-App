@@ -5,16 +5,15 @@ import ImageList from "./ImageList";
 
 class App extends React.Component {
   state = {
-    images: []
+    images: [],
   };
 
-  onSearchSubmit = async term => {
+  onSearchSubmit = async (term) => {
     const response = await axios.get("https://api.unsplash.com/search/photos", {
       params: { query: term },
       headers: {
-        Authorization:
-          "Client-ID 8209b28ef186ba45dbf43986d5e8e313ce07d44467b2ceb3f3bdb6961bac6ef7"
-      }
+        Authorization: "Client-ID YOU_API_KEY_HERE",
+      },
     });
 
     this.setState({ images: response.data.results });
